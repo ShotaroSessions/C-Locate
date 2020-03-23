@@ -1,1 +1,1 @@
-# C-locate
+# C Locate
