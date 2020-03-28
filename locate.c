@@ -25,7 +25,7 @@ int locate(char*key, char*root)
     }
 
     while( (entry = readdir(directory)) ) {
-        if(strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..")) {
+        if(strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
             name[0] = '\0';
             strcat(name, root);
             strcat(name, "/");
