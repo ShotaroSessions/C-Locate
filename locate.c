@@ -16,20 +16,8 @@ int locate(char*key, char*root)
     struct dirent *entry;
     int matches = 0, inner_matches;
 
-
-    /* TODO: add format string method */
-    for(int i = 0; i < strlen(root); i++) {
-        if(root[i] == '\n') {
-            root[i] = '\0';
-        }
-    }
-    for(int i = 0; i < strlen(key); i++) {
-        if(key[i] == '\n') {
-            key[i] = '\0';
-        }
-    }
-    /* FIXME: delete above for loops once format string method added*/
-
+    format_str(root);
+    format_str(key);
 
     directory = open_dir(root);
     if(directory == NULL) {
@@ -57,6 +45,15 @@ int locate(char*key, char*root)
     }
     closedir(directory);
     return matches;
+}
+
+void format_str(char * str)
+{
+    for(int i = 0; i < strlen(str); i++) {
+        if(str[i] == '\n') {
+            str[i] = '\0';
+        }
+    }
 }
 
 DIR *open_dir(char *path)
